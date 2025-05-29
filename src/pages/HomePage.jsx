@@ -1,14 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
-import Hero from "../components/Hero";
-import StoryCard from "../components/StoryCard";
-import HighlightCard from "../components/HighlightCard";
-import Poll from "../components/Poll";
-import Newsletter from "../components/Newsletter";
-import ContactForm from "../components/ContactForm";
-import Footer from "../components/Footer";
-import { Container, Row, Col, Badge } from "react-bootstrap";
-import { Helmet } from "react-helmet";
 
 import { useEffect } from 'react';
 import '../App.css'
