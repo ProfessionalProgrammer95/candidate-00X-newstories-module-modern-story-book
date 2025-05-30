@@ -26,10 +26,10 @@ import '../App.css'
               </button>
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ms-auto">
-                  <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="#">Stories</a></li>
                   <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/genres">Genres</a></li>
-                  <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="#">Community</a></li>
-                  <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="#">About</a></li>
+                  <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/stories">Stories</a></li>
+                  <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/community">Community</a></li>
+                  <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/about">About</a></li>
                   <li className="nav-item">
                     <button className="btn btn-custom ms-2">Write a Story</button>
                   </li>
@@ -144,23 +144,6 @@ import '../App.css'
             </div>
           </section>
 
-          {/* Interactive Poll
-          <section className="py-5 py-md-12 px-4 section-bg">
-            <div className="container text-center">
-              <h2 className="text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish">Interactive Poll</h2>
-              <div className="card mx-auto border-0 shadow" style={{ maxWidth: '400px' }}>
-                <div className="card-body">
-                  <p className="lead mb-4">Should stories have more magical elements?</p>
-                  <div className="d-flex justify-content-center gap-3 mb-4">
-                    <button className="btn btn-custom px-4 py-2">Yes</button>
-                    <button className="btn btn-custom px-4 py-2">No</button>
-                    <button className="btn btn-custom px-4 py-2">Maybe</button>
-                  </div>
-                  <button className="btn btn-custom px-4 py-2">Submit Vote</button>
-                </div>
-              </div>
-            </div>
-          </section> */}
 
           {/* Upcoming Events */}
           <section className="py-5 py-md-12 px-4">

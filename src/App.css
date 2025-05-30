@@ -458,294 +458,6 @@ nav a:hover { color: #FFB300; }
       }
     }
 
-
-
-
-
-    /*genres page*/
-     /* body {
-      background-color: #FAFAFA;
-      font-family: 'Merriweather', serif;
-      color: #333;
-    }
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      color: #8E24AA;
-    }
-    .navbar {
-      background-color: #FAFAFA;
-      padding: 1rem 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .navbar-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: #8E24AA !important;
-      display: flex;
-      align-items: center;
-    }
-    .navbar-brand i {
-      margin-right: 0.5rem;
-      color: #8E24AA;
-    }
-    .nav-link {
-      color: #333 !important;
-      font-family: 'Merriweather', sans-serif;
-      font-size: 1rem;
-    }
-    .nav-link:hover {
-      color: #FFB300 !important;
-    }
-    .nav-tabs {
-      border-bottom: none;
-    }
-    .nav-tabs .nav-link {
-      color: #8E24AA !important;
-      font-family: 'Merriweather', sans-serif;
-      font-size: 1rem;
-      border: none;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
-    .nav-tabs .nav-link:hover {
-      color: #FFB300 !important;
-    }
-    .nav-tabs .nav-link.active {
-      color: #8E24AA !important;
-      border-bottom: 2px solid #8E24AA;
-    }
-    .btn-signin {
-      background-color: #f5e9e9;
-      color: #8E24AA !important;
-      border-radius: 20px;
-      padding: 0.5rem 1.5rem;
-      font-family: 'Merriweather', sans-serif;
-    }
-    .btn-signin:hover {
-      background-color: #FFB300;
-      color: #FAFAFA !important;
-    }
-    .explore-stories {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #8E24AA;
-      margin: 2rem 0 1rem;
-    }
-    .hero-carousel {
-      position: relative;
-      height: 500px;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-       display: flex; 
-      justify-content: center;
-       align-items: center;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .carousel-item {
-      
-      background-size: cover;
-      background-position: center;
-      transition: opacity 1s ease-in-out;
-      object-fit: cover;
-       display: flex; 
-      justify-content: center;
-       align-items: center;
-      width: 100%;
-      height: 100vh;
-       max-width: 100%;
-      max-height: 100%;
-
-    }
-    .carousel-item::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-    }
-    .carousel-caption {
-      bottom: 30%;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
-    .carousel-caption h3 {
-      color: #FAFAFA;
-      font-size: 3rem;
-      font-family: 'Playfair Display', serif;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .carousel-caption h3:hover {
-      transform: scale(1.05);
-      color: #FFB300;
-    }
-    .category-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: #8E24AA;
-      margin-bottom: 2rem;
-      text-align: center;
-      opacity: 0;
-      animation: fadeInTitle 0.5s ease-in forwards;
-    }
-    @keyframes fadeInTitle {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .story-card {
-      background: #FFF;
-      border-radius: 15px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-      background-size: cover;
-    }
-    .story-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-    }
-    .story-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-    }
-    .story-card .stats {
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem 0;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .story-card .stats i {
-      color: #8E24AA;
-      margin-right: 0.3rem;
-      transition: color 0.3s ease;
-    }
-    .story-card .stats i:hover {
-      color: #FFB300;
-    }
-    .story-card h5 {
-      font-size: 1.5rem;
-      margin: 0.5rem 0;
-      font-family: 'Playfair Display', serif;
-      color: #8E24AA;
-    }
-    .story-card p {
-      font-size: 0.95rem;
-      color: #666;
-      font-family: 'Merriweather', sans-serif;
-    }
-    .story-card .icons {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      display: flex;
-      gap: 12px;
-    }
-    .story-card .icons i {
-      color: #8E24AA;
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    .story-card .icons i:hover {
-      color: #FFB300;
-      transform: scale(1.2);
-    }
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-    .footer {
-      background: linear-gradient(90deg, #8E24AA, #FFB300);
-      color: #FAFAFA;
-      padding: 2rem 0;
-      text-align: center;
-    }
-    .footer a {
-      color: #FAFAFA;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-family: 'Merriweather', sans-serif;
-    }
-    .footer a:hover {
-      color: #FFB300;
-    }
-    @media (max-width: 768px) {
-      .hero-carousel {
-        height: 350px;
-      }
-      .carousel-item {
-        height: 350px;
-      }
-      .carousel-caption h3 {
-        font-size: 2rem;
-      }
-      .story-card img {
-        height: 180px;
-      }
-      .explore-stories {
-        font-size: 2rem;
-      }
-      .category-title {
-        font-size: 1.8rem;
-      }
-      .nav-tabs .nav-link {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.8rem;
-      }
-    }
-    @media (max-width: 576px) {
-      .navbar-brand {
-        font-size: 1.2rem;
-      }
-      .btn-signin {
-        padding: 0.4rem 1rem;
-        font-size: 0.9rem;
-      }
-      .hero-carousel {
-        height: 250px;
-      }
-      .carousel-item {
-        height: 250px;
-      }
-      .carousel-caption h3 {
-        font-size: 1.5rem;
-      }
-      .navbar-collapse {
-        background-color: #FAFAFA;
-      }
-    }
-    @media (min-width: 577px) {
-      .navbar-toggler {
-        display: none;
-      }
-      .navbar-collapse {
-        display: flex !important;
-        flex-basis: auto;
-      }
-      .navbar-nav {
-        flex-direction: row;
-      }
-    } */
-
      h1, h2, h3 {
       font-family: 'Playfair Display', serif;
       color: #8E24AA;
@@ -811,17 +523,20 @@ nav a:hover { color: #FFB300; }
     }
     .hero-carousel {
       position: relative;
-      height: 500px;
+      height: 100%;
       overflow: hidden;
       border-radius: 15px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     }
     .carousel-item {
-      height: 500px;
+     height: 100%;
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
+      width: auto;
       transition: opacity 1s ease-in-out, transform 1s ease-in-out;
       opacity: 0;
+      position: relative;
     }
     .carousel-item.active {
       opacity: 1;
@@ -834,8 +549,15 @@ nav a:hover { color: #FFB300; }
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+      background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
     }
+    .carousel-inner{
+       width: 100%; 
+        height: 100vh; 
+        overflow: hidden; 
+    }
+
+    
     .carousel-caption {
       bottom: 30%;
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -850,6 +572,7 @@ nav a:hover { color: #FFB300; }
       font-family: 'Playfair Display', serif;
       cursor: pointer;
       transition: transform 0.3s ease, color 0.3s ease;
+      text-align: center;
     }
     .carousel-caption h3:hover {
       transform: scale(1.05);
@@ -1017,3 +740,220 @@ nav a:hover { color: #FFB300; }
         flex-direction: row;
       }
     }
+
+
+
+
+      /* body {
+      background-color: #FAFAFA;
+      font-family: 'Merriweather', serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #8E24AA, #FFB300);
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #FAFAFA;
+    }
+    .nav-link {
+      color: #FAFAFA !important;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #FFB300 !important;
+    }
+    .hero-section {
+      position: relative;
+      height: 400px;
+      background: center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(142, 36, 170, 0.7), rgba(255, 179, 0, 0.7));
+      z-index: 1;
+    }
+    .quill-flourish {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: url('https://via.placeholder.com/100x100?text=Quill') center/contain no-repeat;
+      animation: float 5s ease-in-out infinite;
+    }
+    .quill-flourish:nth-child(1) { top: 10%; left: 10%; }
+    .quill-flourish:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+    .quill-flourish:nth-child(3) { bottom: 15%; left: 20%; animation-delay: 2s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #FAFAFA;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .story-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #FAFAFA;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      position: relative;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .story-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://via.placeholder.com/10x10?text=Paper+Texture') repeat;
+      opacity: 0.1;
+      z-index: -1;
+      border-radius: 10px;
+    }
+    .story-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #8E24AA;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .story-title::first-letter {
+      font-size: 4rem;
+      color: #FFB300;
+      float: left;
+      margin-right: 10px;
+      line-height: 0.8;
+    }
+    .story-meta {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    .story-meta span {
+      color: #8E24AA;
+    }
+    .story-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    .story-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .story-actions button {
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .story-actions button:hover {
+      transform: scale(1.1);
+      background: #FFB300 !important;
+    }
+    .bookmark-icon {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      width: 30px;
+      height: 60px;
+      background: #FFB300;
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+      transition: transform 0.3s ease;
+    }
+    .bookmark-icon:hover {
+      transform: translateY(5px);
+    }
+    .footer {
+      background: linear-gradient(90deg, #8E24AA, #FFB300);
+      color: #FAFAFA;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .footer a {
+      color: #FAFAFA;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+    .footer a:hover {
+      color: #FFB300;
+    }
+    .story-card {
+      position: relative;
+      background: #FAFAFA;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .story-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .story-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .story-card-body {
+      padding: 1.5rem;
+    }
+    .story-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #8E24AA;
+      margin-bottom: 0.5rem;
+    }
+    .story-card-meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .story-card-meta span {
+      color: #8E24AA;
+    }
+    .story-card-text {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .error-boundary {
+      text-align: center;
+      padding: 2rem;
+      color: #8E24AA;
+    } */

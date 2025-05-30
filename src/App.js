@@ -4,14 +4,16 @@ import HomePage from "./pages/HomePage";
 import StoryPage from "./pages/StoryPage";
 import "./App.css";
 import GenresPage from "./pages/GenresPage";
+import StoriesPage from "./pages/StoriesPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />}/>
         <Route path="/genres" element={<GenresPage/>}/>
-        <Route path="/story/:id" element={<StoryPage />} />
+        <Route path="/stories" element={<StoriesPage/>}/>
+        <Route path="/stories/:id" element={<StoryPage/>}/>
       </Routes>
     </Router>
   );
