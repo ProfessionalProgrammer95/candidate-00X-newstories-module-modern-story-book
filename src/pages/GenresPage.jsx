@@ -97,32 +97,8 @@ const Navbar = () => (
     </nav>
   );
 
-  const ExploreStories = () => (
-    <div className="container my-4">
-      <div className="d-flex justify-content-between align-items-center">
-        <h1 className="explore-stories">Explore Stories</h1>
-        <ul className="nav nav-tabs">
-          {['All', 'Fiction', 'Non-Fiction', 'Poetry'].map((tab) => (
-            <li className="nav-item" key={tab}>
-              <a
-                className={`nav-link ${selectedTab === tab ? 'active' : ''}`}
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSelectedTab(tab);
-                }}
-              >
-                {tab}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-
   const HeroCarousel = () => (
-     <div id="heroCarousel" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+     <div id="heroCarousel" className="carousel slide pt-2 rounded" data-bs-ride="carousel" data-bs-interval="3000">
       <div className="carousel-inner">
         {categories.map((category, index) => (
           <div
@@ -153,11 +129,38 @@ const Navbar = () => (
     </div>
   );
 
+
+
+    const ExploreStories = () => (
+    <div className="container my-4">
+      <div className="d-flex justify-content-between align-items-center">
+        <h1 className="explore-stories">Explore Stories</h1>
+        <ul className="nav nav-tabs">
+          {['All', 'Fiction', 'Non-Fiction', 'Poetry'].map((tab) => (
+            <li className="nav-item" key={tab}>
+              <a
+                className={`nav-link ${selectedTab === tab ? 'active' : ''}`}
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedTab(tab);
+                }}
+              >
+                {tab}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+    </div>
+  );
+
   const StoryCard = ({ story, index , id}) => (
-    <div className="col-lg-3 col-md-4 col-sm-6 mb-4" >
+    <div className="col-lg-3 col-md-4 col-sm-6 mb-4 mx-auto" >
       
         <div className="col" key={id}>
-       <a href={`/stories/${id}`} style={{ textDecoration: 'none' }}>
+       <a href="#" style={{ textDecoration: 'none' }}>
       <div className="story-card fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
         <img src={story.image} alt={story.title} />
         <div className="stats">
@@ -184,10 +187,12 @@ const Navbar = () => (
       <title>Genres | Modern Story Tales</title>
       <meta name="description" content="Explore genres and discover inspiring stories at NewStoriesAndTales.com" />
       <Navbar />
-      <ExploreStories />
+      
       <div className="container">
         <HeroCarousel />
       </div>
+      <ExploreStories />
+      
       <div className="container my-5">
         <h2 key={selectedTab} className="category-title">{selectedTab} Stories</h2>
         {filteredStories?.length > 0 ? (

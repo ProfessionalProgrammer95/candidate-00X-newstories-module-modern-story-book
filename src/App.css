@@ -427,6 +427,9 @@ nav a:hover { color: #FFB300; }
       .event-item {
         padding: 0.75rem;
       }
+      .nav-link {
+      color: #8E24AA!important;
+       }
     }
     @media (max-width: 576px) {
       .gradient-bg {
@@ -450,6 +453,9 @@ nav a:hover { color: #FFB300; }
       .event-item {
         font-size: 0.9rem;
       }
+      .nav-link {
+      color: #8E24AA!important;
+       }
     }
 
      h1, h2, h3 {
@@ -700,6 +706,9 @@ nav a:hover { color: #FFB300; }
         font-size: 0.9rem;
         padding: 0.5rem 0.8rem;
       }
+      .nav-link {
+      color: #8E24AA!important;
+       }
     }
     @media (max-width: 576px) {
       .navbar-brand {
@@ -721,6 +730,9 @@ nav a:hover { color: #FFB300; }
       .navbar-collapse {
         background-color: #FAFAFA;
       }
+      .nav-link {
+      color: #8E24AA!important;
+       }
     }
     @media (min-width: 577px) {
       .navbar-toggler {
@@ -934,6 +946,12 @@ nav a:hover { color: #FFB300; }
       color:#d4b9db !important;
       word-spacing: 30px !important;
     }
+    #heroCarousel img{
+      border-radius: 30px;
+    }
+    #heroCarousel, .carousel-inner, .carousel-item{
+      border-radius: 30px;
+    }
     @media (max-width: 768px) {
       .hero-section {
         height: 300px;
@@ -950,6 +968,18 @@ nav a:hover { color: #FFB300; }
       .section-title {
         font-size: 2rem;
       }
+      .nav-link {
+      color: #8E24AA!important;
+       }
+       .btn-signin{
+        color: #FAFAFA;
+       }
+       .nav-link .btn .btn-signin{
+        color: #FAFAFA !important;
+       }
+       .btn-signin{
+        color: #FAFAFA !important;
+       }
     }
     @media (max-width: 576px) {
       .hero-section {
@@ -968,5 +998,16 @@ nav a:hover { color: #FFB300; }
       .story-content h1 {
         font-size: 1.8rem;
       }
+       .nav-link {
+      color: #8E24AA!important;
+       }
+       .nav-item .nav-link .btn .btn-signin{
+        color: #FAFAFA !important;
+       }
+       .btn-signin{
+        color: #FAFAFA !important;
+       }
+       .explore-stories{
+        font-size: 1.5rem !important;
+       }
     }
-    

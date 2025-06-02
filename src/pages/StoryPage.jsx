@@ -169,7 +169,7 @@ import {Link, useParams} from 'react-router-dom';
       const [isBookmarked, setIsBookmarked] = useState(false);
 
       return (
-        <Col md={4} sm={5} xs={10} className='mx-auto py-2'>
+        <Col md={4} sm={6} xs={10} className='mx-auto py-2'>
           <Link to={`/stories/${id}`} style={{ textDecoration: 'none' }}>
             <Card className="story-card">
               <Card.Img variant="top" src={image} />
