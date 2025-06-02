@@ -2,8 +2,16 @@ import React from "react";
 
 import { useEffect } from 'react';
 import '../App.css'
+import {storiesData} from './StoryPage';
+
 
     const HomePage = () => {
+          const selectedIds = ["modern-english-literature","the-whispering-woods","starlit-dreams" ];
+
+  const selectedStories = Array.isArray(storiesData)
+    ? storiesData?.filter((story) => selectedIds.includes(story.id))
+    : [];
+
       useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -20,7 +28,7 @@ import '../App.css'
           {/* Navigation */}
           <nav className="navbar navbar-expand-lg bg-white shadow-sm">
             <div className="container">
-              <a className="logo navbar-brand text-[#8E24AA] fs-3" href="#">ModernStory <span className="gold">&</span> Tales</a>
+              <a className="logo navbar-brand home-title fs-3" href="/">ModernStory  <span className="gold"> & </span>  Tales</a>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -43,7 +51,7 @@ import '../App.css'
             <div className="container">
               <h1 className="display-3 mb-4 hero-text">Unleash Your Imagination</h1>
               <p className="lead mb-5 hero-text">Craft & share your unique stories with a vibrant community of storytellers.</p>
-              <button className="btn btn-custom px-5 py-3 rounded-pill">Start Writing</button>
+              <button className="btn btn-custom px-5 py-3 rounded-pill"  onClick={() => alert("Let your story begin! Redirecting to the writing page...")}>Start Writing</button>
             </div>
           </section>
 
@@ -51,42 +59,31 @@ import '../App.css'
           <section className="py-5 py-md-12 px-4 paper-texture">
             <div className="container">
               <h2 className="text-center text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish "><span className="heading-with-gradient-underline">Featured Stories</span></h2>
-              
+
+
               <div className="row row-cols-1 row-cols-md-3 g-4">
-                <div className="col">
-                  <a href="/stories/ Modern English Literature" style={{ textDecoration: 'none' }}>
-                    <div className="card border-0 shadow fade-in card-hover">
-                      <img src="https://m.media-amazon.com/images/I/71SSJ-hYDtL._AC_UF1000,1000_QL80_.jpg" className="card-img-top d-block mx-auto" alt="The Warrior's Path" style={{ height: '400px', objectFit: 'cover',width: 'auto' }} />
-                      <div className="card-body">
-                        <h3 className="card-title text-[#8E24AA] fs-5 ribbon-icon"> Modern English Literature</h3>
-                        <p className="card-text drop-cap">A young modern literature embarks on a perilous journey...</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div className="col">
-                  <a href="/stories/the-adventurers-guild" style={{ textDecoration: 'none' }}>
-                    <div className="card border-0 shadow fade-in card-hover">
-                      <img src="https://imaginationsoup.net/wp-content/uploads/2017/10/The-Adventurers-Guild.jpg" className="card-img-top d-block mx-auto" alt="The Wizard's Spell" style={{ height: '400px', objectFit: 'cover', width:"auto" }} />
-                      <div className="card-body">
-                        <h3 className="card-title text-[#8E24AA] fs-5 ribbon-icon">The-Adventurers-Guild</h3>
-                        <p className="card-text drop-cap">An Adventurers discovers a powerful Guild...</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div className="col">
-                  <a href="/stories/the-first-spell-book" style={{ textDecoration: 'none' }}>
-                    <div className="card border-0 shadow fade-in card-hover">
-                      <img src="https://m.media-amazon.com/images/I/61P4sHlKtDL._AC_UF1000,1000_QL80_.jpg" className="card-img-top d-block mx-auto" alt="The Elf's Journey" style={{ height: '400px', objectFit: 'cover',width:"auto"  }} />
-                      <div className="card-body">
-                        <h3 className="card-title text-[#8E24AA] fs-5 ribbon-icon">The First Spell Book</h3>
-                        <p className="card-text drop-cap">An elf seeks to restore balance to the forest...</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+      {selectedStories?.map(({ id, title, description, image }) => (
+        <div className="col" key={id}>
+          <a href={`/stories/${id}`} style={{ textDecoration: 'none' }}>
+            <div className="card border-0 shadow fade-in card-hover">
+              <img
+                src={image}
+                className="card-img-top d-block mx-auto"
+                alt={title}
+                style={{ height: '400px', objectFit: 'cover', width: '300px' }}
+              />
+              <div className="card-body">
+                <h3 className="card-title text-[#8E24AA] fs-5 ribbon-icon">
+                  {title}
+                </h3>
+                <p className="card-text drop-cap">{description}</p>
               </div>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+  
             </div>
           </section>
 
@@ -95,7 +92,7 @@ import '../App.css'
             <div className="container text-center">
               <h2 className="text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish"><span className="heading-with-gradient-underline">Explore Genres</span></h2>
               <div className="d-flex flex-wrap justify-content-center gap-3">
-                {['Fantasy', 'Sci-Fi', 'Mystery', 'Romance', 'Adventure', 'Historical'].map(genre => (
+                {['Fantasy', 'Sci-Fi', 'Mystery', 'Romance', 'Adventure', 'Historical']?.map(genre => (
                   <button key={genre} className="btn btn-custom px-4 py-2 genre-btn">{genre}</button>
                 ))}
               </div>
@@ -214,7 +211,7 @@ import '../App.css'
           </section>
 
           {/* Footer */}
-          <footer className="py-5 px-4 text-center text-sm footer-bg">
+          <footer className="py-5 px-4 text-center text-sm footer-bg text-[#8E24AA]">
             <div className="d-flex justify-content-center gap-4 mb-4">
               <a href="#" className="text-[#8E24AA] hover:text-[#FFB300]">Terms of Service</a>
               <a href="#" className="text-[#8E24AA] hover:text-[#FFB300]">Privacy Policy</a>

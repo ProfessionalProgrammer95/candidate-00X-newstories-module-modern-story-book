@@ -1,261 +1,299 @@
-import React from "react";
-import {  BrowserRouter, Routes, Route, Link, useParams  } from "react-router-dom";
-import { Navbar, Nav, Container, Button, Card, Row, Col  } from "react-bootstrap";
+import{ useState } from 'react';
+import { Card, Row, Col, Container } from 'react-bootstrap';
+import {  Link, useParams } from 'react-router-dom';
 
 
-
-
-// const stories = {
-//   "warriors-path": {
-//     title: "The Warrior’s Path",
-//     content: "Once upon a time, in a land of magic and courage...",
-//     image: "/images/story1.jpg",
-//   },
-//   "wizards-spell": {
-//     title: "The Wizard’s Spell",
-//     content: "In the ancient halls of Eldoria, a wizard discovered...",
-//     image: "/images/story2.jpg",
-//   },
-//   "elfs-journey": {
-//     title: "The Elf’s Journey",
-//     content: "Through mystical forests, the elf sought her destiny...",
-//     image: "/images/story3.jpg",
-//   },
-// };
-
-// function StoryPage() {
-//   const { id } = useParams();
-//   const story = stories[id];
-
-//   if (!story) {
-//     return (
-//       <Container className="py-5">
-//         <h2>Story Not Found</h2>
-//         <Link to="/">Return to Home</Link>
-//       </Container>
-//     );
-//   }
-
-//   return (
-//     <>
-//       <Helmet>
-//         <title>{story.title} | NewStoriesAndTales.com</title>
-//         <meta name="description" content={`Read "${story.title}" on NewStoriesAndTales.com`} />
-//       </Helmet>
-//       <Header />
-//       <Container className="py-5">
-//         <img src={story.image} alt={story.title} className="img-fluid mb-4" style={{ borderRadius: "18px", maxHeight: "350px", objectFit: "cover" }} />
-//         <h1 style={{ fontFamily: "'Playfair Display', serif" }}>{story.title}</h1>
-//         <p style={{ fontFamily: "'Merriweather', serif", fontSize: "1.15rem", marginTop: "2rem" }}>
-//           <span className="dropcap">{story.content.charAt(0)}</span>
-//           {story.content.slice(1)}
-//         </p>
-//         <Link to="/" className="storybook-btn mt-4">← Back to Home</Link>
-//       </Container>
-//       <Footer />
-//     </>
-//   );
-// }
-
-
-
-    const stories = [
+    // Sample story data
+    export const storiesData = [
       {
-        id: 1,
-        title: "The Weaver's Tale",
-        author: "Anya Sharma",
-        date: "July 15, 2024",
-        image: "https://via.placeholder.com/1500x400?text=Weaving+Scene",
-        teaser: "In the quaint village of Eldoria, nestled amidst rolling hills and whispering woods, lived a young woman named Anya...",
-        content: [
-          "In the quaint village of Eldoria, nestled amidst rolling hills and whispering woods, lived a young woman named Anya. She was known for her extraordinary talent in weaving, not just fabrics, but stories that captivated the hearts of all who listened. Her tales were as vibrant and intricate as the tapestries she created, each thread representing a character, a moment, or a lesson learned.",
-          "One day, a mysterious traveler arrived in Eldoria, seeking Anya’s help. He carried with him a tattered piece of cloth, said to hold the key to an ancient prophecy. Anya, intrigued by the challenge, accepted the task. As she began to weave, the cloth transformed, revealing scenes of a forgotten kingdom, its rise, and its fall. The villagers gathered around, mesmerized by the unfolding story, their faces reflecting the emotions of the characters within the tapestry.",
-          "Through her weaving, Anya not only revealed the prophecy but also taught the villagers the importance of preserving their history and learning from the past. The traveler, grateful for her help, revealed himself to be the last descendant of the fallen kingdom, tasked with finding someone worthy of restoring its legacy. He chose Anya, recognizing her wisdom and creativity.",
-          "Anya, with the support of her village, embarked on a journey to rebuild the kingdom, weaving a new chapter in its history, filled with hope and resilience."
-        ],
-        likes: 234,
-        comments: 56,
-        shares: 123
+        id: "the-whispering-woods",
+        title: "The Whispering Woods",
+        description: "A tale of mystery in an enchanted forest.",
+        genre: "Fantasy",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwVZBpL4IUwvyowJTwHdaTLNSkvDUGL6tCAQ&s",
+        views: "1.2K",
+        bookmarks: "300",
+        hearts: "450",
+        content: "Deep within the Whispering Woods, where the trees spoke in hushed tones, a young adventurer named Elara stumbled upon a secret that would change her life forever. The forest, alive with magic, revealed its ancient guardians—spirits of the old world who had been forgotten by time. As Elara ventured deeper, the whispers grew louder, guiding her to a hidden grove where a crystal pool shimmered under the moonlight. There, she discovered a truth about her lineage: she was the last descendant of the forest's protectors, destined to restore its fading magic. But with great power came great danger, as dark forces sought to claim the forest's magic for themselves. Elara's journey had just begun, and the woods would test her courage, wisdom, and heart.",
+        author: "Lila Evergreen",
+        date: "May 15, 2025"
       },
       {
         id: 2,
-        title: "The Starlit Quill",
-        author: "Liam Thorn",
-        date: "August 20, 2024",
-        image: "https://via.placeholder.com/1500x400?text=Starry+Night",
-        teaser: "Under the starlit sky of Vespera, a young scribe named Liam discovered a magical quill that brought his words to life...",
-        content: [
-          "Under the starlit sky of Vespera, a young scribe named Liam discovered a magical quill that brought his words to life. Each stroke of the quill painted vivid scenes in the air, turning his stories into reality for all to see.",
-          "Liam used his newfound power to inspire the people of Vespera, weaving tales of courage and hope. But with great power came great responsibility, and soon he faced a choice that would change the fate of his village forever.",
-          "Through his journey, Liam learned the true magic of storytelling—not in the quill, but in the hearts of those who believed in his words."
-        ],
-        likes: 189,
-        comments: 42,
-        shares: 97
-      }
+        title: "Echoes of the Past",
+        description: "A journey through time to uncover hidden truths.",
+        genre: "Historical Fiction",
+        image: "https://ik.imagekit.io/storybird/images/29f3f20c-6b4a-4cd0-992f-1f80f44cc24a/0_654752463.webp?tr=q-80",
+        views: "2.5K",
+        bookmarks: "500",
+        hearts: "600",
+        content: "In the quaint village of Eldwood, historian Clara unearthed an old journal buried beneath the ruins of a forgotten manor. The journal belonged to a woman named Beatrice, who lived during the 18th century, and its pages told a story of forbidden love, betrayal, and a secret that could rewrite history. As Clara delved deeper into Beatrice's life, she found herself inexplicably drawn into the past, experiencing vivid dreams where she walked in Beatrice's shoes. With each dream, Clara uncovered more about a conspiracy that threatened the village's very existence. Torn between the past and present, Clara had to decide whether to reveal the truth and risk altering the future, or let the echoes of the past remain silent forever.",
+        author: "James Harrow",
+        date: "April 22, 2025"
+      },
+      {
+        id: "starlit-dreams",
+        title: "Starlit Dreams",
+        description: "A romantic adventure under the night sky.",
+        genre: "Romance",
+        image: "https://images.blogmickey.com/spai/q_lossy+w_977+to_auto+ret_img/media.blogmickey.com/wp-content/uploads/2024/08/20002738/disney-starlight-nighttime-parade-concept-art-1-2048x1152.jpg",
+        views: "1.8K",
+        bookmarks: "400",
+        hearts: "520",
+        content: "Under the vast canopy of a starlit sky, Mia and Leo found solace in each other's company. They had met by chance during a meteor shower, their paths crossing on a hilltop far from the city lights. What began as a shared moment of wonder soon blossomed into a deep connection, as they embarked on a journey to chase the stars. From stargazing in remote meadows to dancing under the northern lights, their love grew with each adventure. But when life's challenges threatened to pull them apart, Mia and Leo had to decide if their love was strong enough to withstand the distance—or if their starlit dreams would remain just that, dreams. A tale of love, longing, and the magic of the night sky.",
+        author: "Sophie Moon",
+        date: "March 10, 2025"
+      },
+      {
+        id: "modern-english-literature",
+        title: "Modern English Literature",
+        description: "A young modern literature embarks on a perilous journey...",
+        genre: "Historical",
+        image: "https://m.media-amazon.com/images/I/71SSJ-hYDtL._AC_UF1000,1000_QL80_.jpg",
+        views: "1.8K",
+        bookmarks: "400",
+        hearts: "520",
+        content: "Under the vast canopy of a starlit sky, Mia and Leo found solace in each other's company. They had met by chance during a meteor shower, their paths crossing on a hilltop far from the city lights. What began as a shared moment of wonder soon blossomed into a deep connection, as they embarked on a journey to chase the stars. From stargazing in remote meadows to dancing under the northern lights, their love grew with each adventure. But when life's challenges threatened to pull them apart, Mia and Leo had to decide if their love was strong enough to withstand the distance—or if their starlit dreams would remain just that, dreams. A tale of love, longing, and the magic of the night sky.",
+        author: "Sophie Moon",
+        date: "March 10, 2025"
+      },
+      {
+        id: "5",
+        title: "The-Adventurers-Guild",
+        description: "An Adventurers discovers a powerful Guild...",
+        genre: "Historical",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRo5aYnKmmtr7bNk_Ez1wbE0Zj62gvv7h7dw&s",
+        views: "1.8K",
+        bookmarks: "400",
+        hearts: "520",
+        content: "Under the vast canopy of a starlit sky, Mia and Leo found solace in each other's company. They had met by chance during a meteor shower, their paths crossing on a hilltop far from the city lights. What began as a shared moment of wonder soon blossomed into a deep connection, as they embarked on a journey to chase the stars. From stargazing in remote meadows to dancing under the northern lights, their love grew with each adventure. But when life's challenges threatened to pull them apart, Mia and Leo had to decide if their love was strong enough to withstand the distance—or if their starlit dreams would remain just that, dreams. A tale of love, longing, and the magic of the night sky.",
+        author: "Sophie Moon",
+        date: "March 10, 2025"
+      },
+      {
+        id: "6",
+        title: "The First Spell Book",
+        description: "An elf seeks to restore balance to the forest...",
+        genre: "Adventurers",
+        image: "https://m.media-amazon.com/images/I/61P4sHlKtDL._AC_UF1000,1000_QL80_.jpg",
+        views: "1.8K",
+        bookmarks: "400",
+        hearts: "520",
+        content: "Under the vast canopy of a starlit sky, Mia and Leo found solace in each other's company. They had met by chance during a meteor shower, their paths crossing on a hilltop far from the city lights. What began as a shared moment of wonder soon blossomed into a deep connection, as they embarked on a journey to chase the stars. From stargazing in remote meadows to dancing under the northern lights, their love grew with each adventure. But when life's challenges threatened to pull them apart, Mia and Leo had to decide if their love was strong enough to withstand the distance—or if their starlit dreams would remain just that, dreams. A tale of love, longing, and the magic of the night sky.",
+        author: "Sophie Moon",
+        date: "March 10, 2025"
+      },
+      {
+        id: 'echoes-of-the-past',
+        title: 'Echoes of the Past',
+        description: 'A historical fiction piece exploring forgotten memories.',
+         genre: "Historical",
+        image: 'https://images-cdn.fantasyflightgames.com/filer_public/91/77/9177c4a5-6402-467b-abe7-a03f6fcd3828/ahc12_preview1.png',
+        views: 123,
+        bookmarks: 45,
+        hearts: 67,
+         content: "Under the vast canopy of a starlit sky, Mia and Leo found solace in each other's company. They had met by chance during a meteor shower, their paths crossing on a hilltop far from the city lights. What began as a shared moment of wonder soon blossomed into a deep connection, as they embarked on a journey to chase the stars. From stargazing in remote meadows to dancing under the northern lights, their love grew with each adventure. But when life's challenges threatened to pull them apart, Mia and Leo had to decide if their love was strong enough to withstand the distance—or if their starlit dreams would remain just that, dreams. A tale of love, longing, and the magic of the night sky.",
+        author: "Sophie Moon",
+        date: "March 10, 2025"
+      },
+      {
+        id: 'the-Weaver’s-tale',
+        title: 'The Weaver’s Tale',
+        description: 'A tale of creativity and history in Eldoria.',
+         genre: "Historical",
+        image: 'https://www.ohmytales.com/static/images/histoires/47/the-weavers-wishes-tales-from-japan-641.jpg',
+ 
+        views: 123,
+        bookmarks: 45,
+        hearts: 67,
+         content: "Under the vast canopy of a starlit sky, Mia and Leo found solace in each other's company. They had met by chance during a meteor shower, their paths crossing on a hilltop far from the city lights. What began as a shared moment of wonder soon blossomed into a deep connection, as they embarked on a journey to chase the stars. From stargazing in remote meadows to dancing under the northern lights, their love grew with each adventure. But when life's challenges threatened to pull them apart, Mia and Leo had to decide if their love was strong enough to withstand the distance—or if their starlit dreams would remain just that, dreams. A tale of love, longing, and the magic of the night sky.",
+        author: "Sophie Moon",
+        date: "March 10, 2025"
+      },
+    {
+        id: 'the-secret-garden-of-dreams',
+        title: 'The Secret Garden of Dreams',
+        description: 'A magical realism story.',
+         genre: "Potery",
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl598HFlvK9eztUWxhdVHUvmrw7ojutz6StBnLNOKtjZel4lGiGrTm9vhOZxRVUlcqsNA&usqp=CAU',
+ 
+        views: 345,
+        bookmarks: 78,
+        hearts: 101,
+         content: "Under the vast canopy of a starlit sky, Mia and Leo found solace in each other's company. They had met by chance during a meteor shower, their paths crossing on a hilltop far from the city lights. What began as a shared moment of wonder soon blossomed into a deep connection, as they embarked on a journey to chase the stars. From stargazing in remote meadows to dancing under the northern lights, their love grew with each adventure. But when life's challenges threatened to pull them apart, Mia and Leo had to decide if their love was strong enough to withstand the distance—or if their starlit dreams would remain just that, dreams. A tale of love, longing, and the magic of the night sky.",
+        author: "Sophie Moon",
+        date: "March 10, 2025"
+      },
+      {
+       id: 'the-last-lightkeeper',
+        title: 'The Last Lightkeeper',
+        description: 'A poignant story about solitude and resilience',
+         genre: "Poigant",
+        image: 'https://images.hive.blog/0x0/https://files.peakd.com/file/peakd-hive/digitaladdiction/23tRzfVEmeFhdg7k2LP8eE9zkxhNdnHTZ1ziJH42eDR1RxepsBxNHjtiy1dHKeZLqhXV1.png',
+ 
+        views: 456,
+        bookmarks: 90,
+        hearts: 123,
+         content: "Under the vast canopy of a starlit sky, Mia and Leo found solace in each other's company. They had met by chance during a meteor shower, their paths crossing on a hilltop far from the city lights. What began as a shared moment of wonder soon blossomed into a deep connection, as they embarked on a journey to chase the stars. From stargazing in remote meadows to dancing under the northern lights, their love grew with each adventure. But when life's challenges threatened to pull them apart, Mia and Leo had to decide if their love was strong enough to withstand the distance—or if their starlit dreams would remain just that, dreams. A tale of love, longing, and the magic of the night sky.",
+        author: "Sophie Moon",
+        date: "March 10, 2025"
+      },
     ];
 
-    class ErrorBoundary extends React.Component {
-      state = { hasError: false };
 
-      static getDerivedStateFromError(error) {
-        return { hasError: true };
-      }
+    export const Navbar = () => (
+  <nav className="navbar navbar-expand-lg">
+    <div className="container">
+      <a className="logo navbar-brand text-[#8E24AA] fs-3" href="#">
+        ModernStory <span className="gold">&</span> Tales
+      </a>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul className="navbar-nav">
+          <li className="nav-item"><a className="nav-link" href="/">Home</a></li>
+          <li className="nav-item"><a className="nav-link active" href="/genres">Genres</a></li>
+          <li className="nav-item"><a className="nav-link" href="/stories">Stories</a></li>
+          <li className="nav-item"><a className="nav-link" href="/community">Community</a></li>
+          <li className="nav-item"><a className="nav-link" href="/about">About</a></li>
+          <li className="nav-item"><a className="nav-link btn btn-signin ms-2" href="/signin">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+);
 
-      render() {
-        if (this.state.hasError) {
-          return (
-            <div className="error-boundary">
-              <h2>Something went wrong.</h2>
-              <p>Please try refreshing the page.</p>
-            </div>
-          );
-        }
-        return this.props.children;
-      }
-    }
+    // Story Card Component
+    export const StoryCard = ({ title, description, image, views, bookmarks, hearts, genre, id }) => {
+      const [isBookmarked, setIsBookmarked] = useState(false);
 
-    const StoryCard = ({ story }) => {
       return (
-        <Col md={4} className="mb-4">
-          <Link to={`/stories/${story.id}`} style={{ textDecoration: 'none' }}>
+<>       
+        <Col md={4} sm={5} xs={10} className='mx-auto py-2'>
+          <Link to={`/stories/${id}`} style={{ textDecoration: 'none' }}>
             <Card className="story-card">
-              <Card.Img variant="top" src={story.image} />
+              <Card.Img variant="top" src={image} />
               <Card.Body className="story-card-body">
-                <Card.Title className="story-card-title">{story.title}</Card.Title>
-                <div className="story-card-meta">
-                  By <span>{story.author}</span> | {story.date}
-                </div>
-                <Card.Text className="story-card-text">{story.teaser}</Card.Text>
+                <Card.Title className="story-card-title">{title}</Card.Title>
+                <Card.Text className="story-card-text">{description}</Card.Text>
+                <span className="genre-tag">{genre}</span>
               </Card.Body>
+              <div className="story-card-footer">
+                <div className="story-stats">
+                  <i className="bi bi-eye"></i> {views}
+                  <i className="bi bi-heart-fill ms-2"></i> {hearts}
+                </div>
+                <i
+                  className={`bi ${isBookmarked ? 'bi-bookmark-fill' : 'bi-bookmark'} bookmark-icon`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsBookmarked(!isBookmarked);
+                  }}
+                ></i>
+              </div>
             </Card>
           </Link>
         </Col>
+        </>
       );
     };
+    
 
-    const StoryPage = () => {
+    
+
+    // // Genres Page Component
+    // const GenresPage = () => {
+    //   const genres = ["Fantasy", "Historical Fiction", "Romance"];
+    //   return (
+    //     <section className="container">
+    //       <h2 className="section-title">Genres</h2>
+    //       {genres.map((genre) => (
+    //         <div key={genre}>
+    //           <h3 className="section-title" style={{ fontSize: '2rem' }}>{genre}</h3>
+    //           <Row>
+    //             {storiesData
+    //               .filter((story) => story.genre === genre)
+    //               .map((story) => (
+    //                 <StoryCard
+    //                   key={story.id}
+    //                   id={story.id}
+    //                   title={story.title}
+    //                   description={story.description}
+    //                   image={story.image}
+    //                   views={story.views}
+    //                   bookmarks={story.bookmarks}
+    //                   hearts={story.hearts}
+    //                   genre={story.genre}
+    //                 />
+    //               ))}
+    //           </Row>
+    //         </div>
+    //       ))}
+    //     </section>
+    //   );
+    // };
+
+   
+
+    // Story Content Page Component
+    const StoryContentPage = () => {
       const { id } = useParams();
-      const story = stories.find(s => s.id === parseInt(id));
+  const story = storiesData.find((s) => String(s.id) === String(id));
 
       if (!story) {
-        return <Container className="text-center mt-5"><h2>Story Not Found</h2></Container>;
+        return <Container><h2 className="section-title">Story Not Found</h2></Container>;
       }
 
       return (
-        <div>
-          <Navbar expand="lg" className="navbar">
-            <Container>
-              <Navbar.Brand as={Link} to="/">StoryWeave</Navbar.Brand>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ms-auto">
-                  <Nav.Link as={Link} to="/">Explore</Nav.Link>
-                  <Nav.Link href="#">Create</Nav.Link>
-                  <Nav.Link href="#">Community</Nav.Link>
-                  <Nav.Link href="#">About</Nav.Link>
-                  <Nav.Link href="#">Sign In</Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
 
-          <div className="hero-section" style={{ backgroundImage: `url(${story.image})` }}>
-            <div className="hero-overlay"></div>
-            <div className="quill-flourish"></div>
-            <div className="quill-flourish"></div>
-            <div className="quill-flourish"></div>
-            <div className="hero-text">
-              <h1>{story.title}</h1>
-            </div>
+         <div>
+          {/* Navigation */}
+         <Navbar/>
+        <Container className="story-content ">
+          <h1>{story.title}</h1>
+          <div className="story-meta">
+            <span>By {story.author}</span>
+            <span>{story.date}</span>
           </div>
-
-          <Container className="story-container">
-            <div className="bookmark-icon"></div>
-            <h1 className="story-title">{story.title}</h1>
-            <div className="story-meta">
-              By <span>{story.author}</span> | {story.date}
-            </div>
-            <div className="story-content">
-              {story.content.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-            </div>
-            <div className="story-actions">
-              <Button variant="outline-primary"><i className="bi bi-heart"></i> {story.likes}</Button>
-              <Button variant="outline-primary"><i className="bi bi-chat"></i> {story.comments}</Button>
-              <Button variant="outline-primary"><i className="bi bi-share"></i> {story.shares}</Button>
-            </div>
-          </Container>
-
-          <footer className="footer">
-            <div>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-            </div>
-            <div className="mt-3">
-              <a href="#"><i className="bi bi-twitter"></i></a>
-              <a href="#"><i className="bi bi-instagram"></i></a>
-              <a href="#"><i className="bi bi-facebook"></i></a>
-            </div>
-            <p className="mt-3">©2024 StoryWeave. All rights reserved.</p>
-          </footer>
+          <p>{story.content}</p>
+          <div className='unique-icons'>
+            <span><i class="bi bi-eye me-2"></i>{story.views}</span>
+            <span><i class="bi bi-heart-fill ms-3 me-2"></i>{story.hearts}</span>
+            <span><i class="bi bi-bookmark bookmark-icon ms-2 me-2"></i>{story.bookmarks}</span>
+          </div>
+        </Container>
+         <footer className="footer">
+        <div className="container">
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <p className="mt-3">©2025 StoryWeave. All rights reserved.</p>
+        </div>
+      </footer>
         </div>
       );
     };
 
-    // const StoryPage = () => {
-    //   return (
-    //     <div>
-    //       <Navbar expand="lg" className="navbar">
-    //         <Container>
-    //           <Navbar.Brand as={Link} to="/">StoryWeave</Navbar.Brand>
-    //           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //           <Navbar.Collapse id="basic-navbar-nav">
-    //             <Nav className="ms-auto">
-    //               <Nav.Link as={Link} to="/">Explore</Nav.Link>
-    //               <Nav.Link href="#">Create</Nav.Link>
-    //               <Nav.Link href="#">Community</Nav.Link>
-    //               <Nav.Link href="#">About</Nav.Link>
-    //               <Nav.Link href="#">Sign In</Nav.Link>
-    //             </Nav>
-    //           </Navbar.Collapse>
-    //         </Container>
-    //       </Navbar>
-
-    //       <Container className="mt-5">
-    //         <h1 className="text-center mb-4" style={{ fontFamily: 'Playfair Display', color: '#8E24AA' }}>
-    //           Explore Stories
-    //         </h1>
-    //         <Row>
-    //           {stories.map(story => (
-    //             <StoryCard key={story.id} story={story} />
-    //           ))}
-    //         </Row>
-    //       </Container>
-
-    //       <footer className="footer">
-    //         <div>
-    //           <a href="#">About</a>
-    //           <a href="#">Contact</a>
-    //           <a href="#">Privacy Policy</a>
-    //           <a href="#">Terms of Service</a>
-    //         </div>
-    //         <div className="mt-3">
-    //           <a href="#"><i className="bi bi-twitter"></i></a>
-    //           <a href="#"><i className="bi bi-instagram"></i></a>
-    //           <a href="#"><i className="bi bi-facebook"></i></a>
-    //         </div>
-    //         <p className="mt-3">©2024 StoryWeave. All rights reserved.</p>
-    //       </footer>
-    //     </div>
-    //   );
-    // };
+  
+        <nav className="navbar navbar-expand-lg">
+          <div className="container">
+            <Link className="navbar-brand" to="/">NewStoriesAndTales</Link>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ms-auto">
+                <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/genres">Genres</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/stories">Stories</Link></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
 
 
 
-
-export default StoryPage;
+export default StoryContentPage;
