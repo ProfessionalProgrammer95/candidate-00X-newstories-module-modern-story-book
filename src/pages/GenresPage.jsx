@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../App.css';
-import { useNavigate } from 'react-router-dom';
 
 const GenresPage = () => {
-  const navigate = useNavigate();
-
+ 
   const selectedIds = [
     'echoes-of-the-past',
     'the-Weaver’s-tale',
@@ -67,11 +65,7 @@ const GenresPage = () => {
         bookmarks: 90,
         hearts: 123
       }
-    ],
-    Romance: [],
-    Thriller: [],
-    Fantasy: [],
-    Adventure: []
+    ]
   };
 
   const [selectedCategory, setSelectedCategory] = useState('Fiction');
@@ -212,7 +206,7 @@ const Navbar = () => (
           <a href="/contact">Contact</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Service</a>
-          <p className="mt-3">©2025 StoryWeave. All rights reserved.</p>
+          <p className="mt-3">©2025 ModernStories&Tales. All rights reserved.</p>
         </div>
       </footer>
     </>

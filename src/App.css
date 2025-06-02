@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400&display=swap');
 
- /* body, .storybook-bg {
-  background: linear-gradient(135deg, #8E24AA 0%, #FFB300 100%);
-  min-height: 100vh;
-  font-family: 'Merriweather', 'Source Sans Pro', serif;
-  background-attachment: fixed;
-} */
-
+ 
 .storybook-header {
   background: #FAFAFA;
   box-shadow: 0 2px 8px rgba(142,36,170,0.05);

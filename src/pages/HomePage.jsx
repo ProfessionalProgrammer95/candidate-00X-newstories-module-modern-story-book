@@ -1,31 +1,28 @@
-import React from "react";
-
 import { useEffect } from 'react';
 import '../App.css'
 import {storiesData} from './StoryPage';
 
-
-    const HomePage = () => {
-          const selectedIds = ["modern-english-literature","the-whispering-woods","starlit-dreams" ];
+  const HomePage = () => {
+    const selectedIds = ["modern-english-literature","the-whispering-woods","starlit-dreams" ];
 
   const selectedStories = Array.isArray(storiesData)
     ? storiesData?.filter((story) => selectedIds.includes(story.id))
     : [];
 
-      useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-      }, []);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  }, []);
 
-      return (
-        <div>
-          {/* Navigation */}
+    return (
+      <div>
+        {/* Navigation */}
           <nav className="navbar navbar-expand-lg bg-white shadow-sm">
             <div className="container">
               <a className="logo navbar-brand home-title fs-3" href="/">ModernStory  <span className="gold"> & </span>  Tales</a>
@@ -47,7 +44,7 @@ import {storiesData} from './StoryPage';
           </nav>
 
           {/* Hero Section */}
-          <section className="gradient-bg text-white text-center quill-flourish">
+    <section className="gradient-bg text-white text-center quill-flourish">
             <div className="container">
               <h1 className="display-3 mb-4 hero-text">Unleash Your Imagination</h1>
               <p className="lead mb-5 hero-text">Craft & share your unique stories with a vibrant community of storytellers.</p>
@@ -56,12 +53,12 @@ import {storiesData} from './StoryPage';
           </section>
 
           {/* Featured Stories */}
-          <section className="py-5 py-md-12 px-4 paper-texture">
+      <section className="py-5 py-md-12 px-4 paper-texture">
             <div className="container">
               <h2 className="text-center text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish "><span className="heading-with-gradient-underline">Featured Stories</span></h2>
 
 
-              <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row row-cols-1 row-cols-md-3 g-4">
       {selectedStories?.map(({ id, title, description, image }) => (
         <div className="col" key={id}>
           <a href={`/stories/${id}`} style={{ textDecoration: 'none' }}>
@@ -84,22 +81,22 @@ import {storiesData} from './StoryPage';
       ))}
     </div>
   
-            </div>
-          </section>
+    </div>
+    </section>
 
-          {/* Explore Genres */}
-          <section className="py-5 py-md-12 px-4 section-bg">
-            <div className="container text-center">
-              <h2 className="text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish"><span className="heading-with-gradient-underline">Explore Genres</span></h2>
-              <div className="d-flex flex-wrap justify-content-center gap-3">
-                {['Fantasy', 'Sci-Fi', 'Mystery', 'Romance', 'Adventure', 'Historical']?.map(genre => (
-                  <button key={genre} className="btn btn-custom px-4 py-2 genre-btn">{genre}</button>
-                ))}
-              </div>
-            </div>
-          </section>
+  {/* Explore Genres */}
+  <section className="py-5 py-md-12 px-4 section-bg">
+    <div className="container text-center">
+     <h2 className="text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish"><span className="heading-with-gradient-underline">Explore Genres</span></h2>
+      <div className="d-flex flex-wrap justify-content-center gap-3">
+      {['Fantasy', 'Sci-Fi', 'Mystery', 'Romance', 'Adventure', 'Historical']?.map(genre => (
+      <button key={genre} className="btn btn-custom px-4 py-2 genre-btn">{genre}</button>
+      ))}
+      </div>
+      </div>
+      </section>
 
-          {/* Community Highlights */}
+  {/* Community Highlights */}
           <section className="py-5 py-md-12 px-4 paper-texture">
             <div className="container">
               <h2 className="text-center text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish"><span className="heading-with-gradient-underline">Community Highlights</span></h2>

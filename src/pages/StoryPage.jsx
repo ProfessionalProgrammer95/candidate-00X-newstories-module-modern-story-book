@@ -1,6 +1,6 @@
-import{ useState } from 'react';
-import { Card, Row, Col, Container } from 'react-bootstrap';
-import {  Link, useParams } from 'react-router-dom';
+import{useState} from 'react';
+import {Card, Col, Container} from 'react-bootstrap';
+import {Link, useParams} from 'react-router-dom';
 
 
     // Sample story data
@@ -169,7 +169,6 @@ import {  Link, useParams } from 'react-router-dom';
       const [isBookmarked, setIsBookmarked] = useState(false);
 
       return (
-<>       
         <Col md={4} sm={5} xs={10} className='mx-auto py-2'>
           <Link to={`/stories/${id}`} style={{ textDecoration: 'none' }}>
             <Card className="story-card">
@@ -195,46 +194,9 @@ import {  Link, useParams } from 'react-router-dom';
             </Card>
           </Link>
         </Col>
-        </>
       );
     };
-    
-
-    
-
-    // // Genres Page Component
-    // const GenresPage = () => {
-    //   const genres = ["Fantasy", "Historical Fiction", "Romance"];
-    //   return (
-    //     <section className="container">
-    //       <h2 className="section-title">Genres</h2>
-    //       {genres.map((genre) => (
-    //         <div key={genre}>
-    //           <h3 className="section-title" style={{ fontSize: '2rem' }}>{genre}</h3>
-    //           <Row>
-    //             {storiesData
-    //               .filter((story) => story.genre === genre)
-    //               .map((story) => (
-    //                 <StoryCard
-    //                   key={story.id}
-    //                   id={story.id}
-    //                   title={story.title}
-    //                   description={story.description}
-    //                   image={story.image}
-    //                   views={story.views}
-    //                   bookmarks={story.bookmarks}
-    //                   hearts={story.hearts}
-    //                   genre={story.genre}
-    //                 />
-    //               ))}
-    //           </Row>
-    //         </div>
-    //       ))}
-    //     </section>
-    //   );
-    // };
-
-   
+      
 
     // Story Content Page Component
     const StoryContentPage = () => {
@@ -269,31 +231,11 @@ import {  Link, useParams } from 'react-router-dom';
           <a href="/contact">Contact</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Service</a>
-          <p className="mt-3">©2025 StoryWeave. All rights reserved.</p>
+          <p className="mt-3">©2025 ModernStories&Tales All rights reserved.</p>
         </div>
       </footer>
         </div>
       );
     };
-
-  
-        <nav className="navbar navbar-expand-lg">
-          <div className="container">
-            <Link className="navbar-brand" to="/">NewStoriesAndTales</Link>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav ms-auto">
-                <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-                <li className="nav-item"><Link className="nav-link" to="/genres">Genres</Link></li>
-                <li className="nav-item"><Link className="nav-link" to="/stories">Stories</Link></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-
-
 
 export default StoryContentPage;
