@@ -1468,3 +1468,246 @@ nav a:hover { color: #FFB300; }
          font-size: 1.3rem; padding: 0.8rem 2.5rem;
          }
     }
+
+
+    .storybook-header {
+      background: linear-gradient(90deg, #8E24AA, #FFB300);
+      padding: 0.75rem 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .storybook-logo, .storybook-navlink {
+      color: #FAFAFA !important;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .storybook-logo:hover, .storybook-navlink:hover {
+      color: #FFD740 !important;
+      transform: translateY(-2px);
+    }
+    .storybook-navlink {
+      margin-left: 2rem;
+    }
+    .storybook-actionbtn {
+      background: linear-gradient(45deg, #8E24AA, #FFB300);
+      border: none;
+      border-radius: 25px;
+      font-family: 'Merriweather', serif;
+      padding: 0.5rem 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .storybook-actionbtn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+    .storybook-actionbtn:hover::before {
+      left: 100%;
+    }
+    .storybook-actionbtn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .storybook-section {
+      padding: 3rem 2rem;
+      position: relative;
+     
+    }
+    .storybook-intropage {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .storybook-intropage h1 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      animation: fadeInDown 1s ease forwards;
+    }
+    .storybook-intropage h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #8E24AA, #FFB300);
+      animation: expand 1s ease forwards;
+    }
+    .storybook-intropage p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards 0.5s;
+    }
+    .storybook-parchment {
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2NkYGBg+P//PwMyMTAwMDD8//8fA7m5uREwYvL6AwB4kwv1gL0L1wAAAABJRU5ErkJggg==');
+      background-repeat: repeat;
+      position: relative;
+      
+    }
+    .storybook-parchment::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(142, 36, 170, 0.1), rgba(255, 179, 0, 0.1));
+      pointer-events: none;
+    }
+    .storybook-talebox {
+      background-color: #FAFAFA;
+      border: 2px solid #8E24AA;
+      border-radius: 15px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease;
+      opacity: 0;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .storybook-talebox.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .storybook-talebox:hover {
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .storybook-talebox::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 179, 0, 0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .storybook-talebox:hover::before {
+      opacity: 1;
+    }
+    .storybook-taleintro::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #FFB300;
+      float: left;
+      margin-right: 0.5rem;
+      line-height: 1;
+    }
+    .storybook-taleimage {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 13px 13px 0 0;
+      transition: transform 0.5s ease;
+    }
+    .storybook-talebox:hover .storybook-taleimage {
+      transform: scale(1.1);
+    }
+    .storybook-bookmark {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMThDMTQuNDIgMyAxOC4yNSAxIDE4IDJDMjAuMjUgMSAxNC40MiAzIDEwIDVDNS41OCAzIDEuNzUgMSAyIDJDMi4yNSAxIDEuNTggMyA6IDVDNi4xNiA5LjUgMy4yNSAxNi41IDcgMThDNy4xNiAxOC4xNiA4LjUgMTkgMTAgMThaIiBmaWxsPSIjRkZGQzAwIiBzdHJva2U9IiM4RTI0QUEiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==');
+      transition: transform 0.3s ease;
+    }
+    .storybook-talebox:hover .storybook-bookmark {
+      transform: rotate(15deg);
+    }
+    .storybook-iconquill {
+      width: 40px;
+      height: 40px;
+      background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9JjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMjBMMjAgMTBMMzAgMjAiIHN0cm9rZT0iIzhFMjRBQSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+');
+      margin: 0 auto 1rem;
+      transition: transform 0.5s ease;
+      animation: pulse 2s infinite;
+    }
+    .storybook-talebox:hover .storybook-iconquill {
+      transform: rotate(360deg);
+    }
+    .storybook-section img{
+      width: 90%;
+    }
+    .storybook-illustration {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      margin: 2rem auto;
+      display: block;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes expand {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 50px;
+      }
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @media (max-width: 768px) {
+      .storybook-logo, .storybook-navlink {
+        font-size: 0.9rem;
+      }
+      .storybook-navlink {
+        margin-left: 1rem;
+      }
+      .storybook-intropage h1 {
+        font-size: 2rem;
+      }
+      .storybook-intropage p {
+        font-size: 1rem;
+      }
+      .storybook-talebox {
+        margin-bottom: 1rem;
+      }
+    }
+
+
+    
