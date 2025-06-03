@@ -5,6 +5,7 @@ import StoryPage from "./pages/StoryPage";
 import "./App.css";
 import GenresPage from "./pages/GenresPage";
 import StoriesPage from "./pages/StoriesPage";
+import Community from "./pages/Community";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage  />}/>
         <Route path="/genres" element={<GenresPage/>}/>
         <Route path="/stories" element={<StoriesPage/>}/>
+        <Route path="/community" element={<Community/>}/>
         <Route path="/stories/:id" element={<StoryPage/>}/>
       </Routes>
     </Router>

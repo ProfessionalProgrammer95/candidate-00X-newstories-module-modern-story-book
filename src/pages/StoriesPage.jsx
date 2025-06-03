@@ -24,7 +24,10 @@ import {storiesData, StoryCard} from './StoryPage';
       </div>
     </div>
   </nav>
-      <section className="container">
+      <section className="container px-5">
+        <h1 className='py-4'>Stories</h1>
+        <p>Explore a diverse collection of stories, ezch crafted with creativity and passion. Dive into narratives that inspire, challenges, and connect us.</p>
+        <div>
         <h2 className="section-title">All Stories</h2>
         <Row>
           {storiesData.map((story) => (
@@ -41,6 +44,7 @@ import {storiesData, StoryCard} from './StoryPage';
             />
           ))}
         </Row>
+        </div>
       </section>
        <footer className="footer">
         <div className="container">

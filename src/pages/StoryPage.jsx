@@ -212,7 +212,7 @@ import {Link, useParams} from 'react-router-dom';
          <div>
           {/* Navigation */}
          <Navbar/>
-        <Container className="story-content ">
+        <Container className="story-content px-5">
           <h1>{story.title}</h1>
           <div className="story-meta">
             <span>By {story.author}</span>
