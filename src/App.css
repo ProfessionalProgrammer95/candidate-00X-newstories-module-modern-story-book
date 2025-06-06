@@ -280,8 +280,8 @@ nav a:hover { color: #FFB300; }
       transform: rotate(10deg);
     }
     .footer-bg {
-      background: linear-gradient(135deg, rgba(142, 36, 170, 0.1), rgba(255, 179, 0, 0.1));
-    }
+background-color: #30043c !important;
+    color: #ffffff;    }
     .drop-cap::first-letter {
       font-family: 'Playfair Display', serif;
       float: left;
@@ -670,7 +670,7 @@ nav a:hover { color: #FFB300; }
       to { opacity: 1; }
     }
     .footer {
-      background: linear-gradient(90deg, #8E24AA, #FFB300);
+      background-color:#30043c !important;
       color: #FAFAFA;
       padding: 2rem 0;
       text-align: center;
@@ -931,14 +931,14 @@ nav a:hover { color: #FFB300; }
       color: #666;
     }
     footer {
-      background: linear-gradient(90deg, #8E24AA, #FFB300);
-      color: #8E24AA;
+      /* background: linear-gradient(90deg, #8E24AA, #FFB300); */
+      color: #ffffff;
       padding: 2rem 0;
       text-align: center;
       margin-top: 3rem;
     }
     footer a {
-      color: #8E24AA;
+      color: #ffffff;
       text-decoration: none;
       margin: 0 1rem;
       transition: color 0.3s ease;
