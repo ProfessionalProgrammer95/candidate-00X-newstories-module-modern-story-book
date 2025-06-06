@@ -39,7 +39,7 @@ nav a:hover { color: #FFB300; }
 .storybook-btn:hover, .storybook-btn-lg:hover { transform: scale(1.05); }
 
 .storybook-hero {
-  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOtzrE0lesYvCpwM6k2bPwhnW4Ht-d3QS7_w&s'), linear-gradient(120deg, #8E24AA 0%, #FFB300 100%);
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOtzrE0lesYvCpwM6k2bPwhnW4Ht-d3QS7_w&s'), linear-gradient(120deg, #8E24AA 10%, #FFB300 100%);
   color: #FAFAFA;
   border-radius: 24px;
   margin: 2rem 0;
@@ -193,7 +193,7 @@ nav a:hover { color: #FFB300; }
     }
     .gradient-bg::before, .gradient-bg::after{
       position: absolute;
-      z-index: 1;
+      z-index: -1;
     }
     .gradient-bg::before {
       content: '';
@@ -331,13 +331,14 @@ nav a:hover { color: #FFB300; }
       transform: rotate(15deg);
     }
     .btn-custom {
-      background: linear-gradient(135deg, #8E24AA, #FFB300);
+      background: linear-gradient(180deg, #8E24AA, #FFB300);
       color: white !important;
       font-size: 20px !important;
       transition: transform 0.3s ease;
       background-size: 200% 200%;
       background-position: 0% 0%;
       z-index: 1000;
+       animation: nst-pulse 2.5s infinite ease-in-out;
        transition: all 0.4s ease-in-out;
     }
     .btn-custom:hover {
@@ -764,9 +765,12 @@ nav a:hover { color: #FFB300; }
     .nav-link {
       color: #fffdff!important;
       transition: color 0.3s ease;
+      transition: 1s all ease-out;
     }
     .nav-link:hover {
-      color: #FFB300 !important;
+      color: #dfacee !important;
+     
+      transition: 1s all ease-out;
     }
     .hero-section {
       position: relative;
