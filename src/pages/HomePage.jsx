@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import '../App.css'
 import {storiesData} from './StoryPage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFeatherPointed , faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 
   const HomePage = () => {
     const selectedIds = ["modern-english-literature","the-whispering-woods","starlit-dreams" ];
@@ -35,8 +37,9 @@ import {storiesData} from './StoryPage';
                   <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/stories">Stories</a></li>
                   <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/community">Community</a></li>
                   <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/about">About</a></li>
+                   <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="#Contact-form">Contact-Us</a></li>
                   <li className="nav-item">
-                    <button className="btn btn-custom ms-2">Write a Story</button>
+                    <button className="btn btn-custom ms-2"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/newstory">Write a Story</a></button>
                   </li>
                 </ul>
               </div>
@@ -48,7 +51,7 @@ import {storiesData} from './StoryPage';
             <div className="container">
               <h1 className="display-3 mb-4 hero-text">Unleash Your Imagination</h1>
               <p className="lead mb-5 hero-text">Craft & share your unique stories with a vibrant community of storytellers.</p>
-              <button className="btn btn-custom px-5 py-3 rounded-pill"  onClick={() => alert("Let your story begin! Redirecting to the writing page...")}>Start Writing</button>
+              <button className="btn btn-custom px-5 py-3 rounded-pill"  onClick={() => alert("Let your story begin! Redirecting to the writing page...")}><a className="nav-link text-[#ffffff] hover:text-[#FFB300]" href="/newstory">Start Writing</a></button>
             </div>
           </section>
 
@@ -163,31 +166,31 @@ import {storiesData} from './StoryPage';
           </section>
 
           
-          <section className="row">
+          <section className="row  section-bg">
          {/* Subscription Form */}
-          <section className=" col-md-6 py-5 py-md-12 px-4 section-bg">
-            <div className="container text-center">
-              <h2 className="text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish"><span className="heading-with-gradient-underline">Interactive Poll</span></h2>
-              <div className="card mx-auto border-0 shadow" style={{ maxWidth: '500px' }}>
-                <div className="card-body">
+          <section className=" col-md-6 py-5 py-md-12 px-4">
+            <div className="container text-center shadow background-change-design">
+              <h3 className="text-[#8E24AA] display-6 mb-5 mb-md-8"><span className="heading-with-gradient-underline pt-5">Interactive Poll <FontAwesomeIcon icon={faFeatherPointed} /></span></h3>
+              <div className="card mx-auto border-0 ">
+                
                   <p className="lead mb-4">Should stories have more magical elements?</p>
                   <div className="d-flex justify-content-center gap-3 mb-4">
                     <button className="btn btn-custom px-4 py-2">Yes</button>
                     <button className="btn btn-custom px-4 py-2">No</button>
                     <button className="btn btn-custom px-4 py-2">Maybe</button>
                   </div>
-                  <button className="btn btn-custom px-4 py-2">Submit Vote</button>
+                  <button className="btn submit-vote-btn btn-custom px-1 py-2">Submit Vote</button>
                 </div>
               </div>
-            </div>
+            
           </section>
                {/* Interactive Poll */}
-          <section className=" col-md-6 py-5 py-md-12 px-4 section-bg">
-            <div className="container text-center">
-              <h2 className="text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish"> <span className="heading-with-gradient-underline">Stay Updated</span></h2>
-              <div style={{ maxWidth: '500px', margin: '0 auto' ,paddingTop:'2rem' }}>
-                <input type="email" placeholder="Your Email" className="form-control mb-4 p-3 bg-[#FFB300] border-1 shadow-sm" />
-                <button className="btn btn-custom w-100 py-2">Subscribe</button>
+          <section className=" col-md-6 py-5 py-md-12 px-4">
+            <div className="container text-center background-change-design shadow">
+              <h3 className="text-[#8E24AA] display-6 mb-5 mb-md-8"> <span className="heading-with-gradient-underline pt-5">Stay Updated <FontAwesomeIcon icon={faPaperPlane} /> </span></h3>
+              <div style={{ maxWidth: '400px', margin: '0 auto' ,paddingTop:'2rem' }}>
+                <input type="email" placeholder="Your Email" className="form-control mb-4 p-3 bg-[#FFB300] border-1 shadow-sm" style={{ maxWidth: '300px', margin: '0 auto'}}/>
+                <button className="btn submit-vote-btn btn-custom w-100 py-2">Subscribe</button>
               </div>
             </div>
           </section>
@@ -195,8 +198,8 @@ import {storiesData} from './StoryPage';
          
 
           {/* Contact Form */}
-          <section className="py-5 py-md-12 px-4 paper-texture">
-            <div className="container text-center p-5" style={{ maxWidth: '700px', margin: '0 auto', border:'3px solid #8E24AA', borderRadius:'40px' }}>
+          <section id='Contact-form' className="py-5 py-md-12 px-4 paper-texture">
+            <div className="container background-img-form text-center p-5" style={{ maxWidth: '700px', margin: '0 auto', border:'3px solid #8E24AA', borderRadius:'40px' }}>
               <h2 className="text-[#8E24AA] display-5 mb-5 mb-md-8 quill-flourish"><span className="heading-with-gradient-underline">Contact Us</span></h2>
               <div style={{ maxWidth: '400px', margin: '0 auto' }}>
                 <input type="text" placeholder="Your Name" className="form-control mb-4 p-3 bg-[#FAFAFA] shadow-sm" style={{ border:'3px solid #f3d591'}}/>

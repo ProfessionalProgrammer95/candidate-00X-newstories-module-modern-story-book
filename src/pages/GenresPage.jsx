@@ -85,12 +85,13 @@ const Navbar = () => (
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item"><a className="nav-link" href="/">Home</a></li>
-            <li className="nav-item"><a className="nav-link active" href="/genres">Genres</a></li>
+            <li className="nav-item"><a className="nav-link" href="/home">Home</a></li>
+            
             <li className="nav-item"><a className="nav-link" href="/stories">Stories</a></li>
             <li className="nav-item"><a className="nav-link" href="/community">Community</a></li>
             <li className="nav-item"><a className="nav-link" href="/about">About</a></li>
-            <li className="nav-item"><a className="nav-link btn btn-signin ms-2" href="/signin">Sign In</a></li>
+             <li className="nav-item"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/ContactForm">Contact-Us</a></li>
+            <li className="nav-item"><a className="nav-link btn btn-signin ms-2" href="/">Logout</a></li>
           </ul>
         </div>
       </div>
