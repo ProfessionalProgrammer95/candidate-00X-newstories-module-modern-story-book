@@ -943,7 +943,7 @@ background-color: #30043c !important;
       color: #ffffff;
       padding: 2rem 0;
       text-align: center;
-      margin-top: 3rem;
+     
     }
     footer a {
       color: #ffffff;
@@ -1332,7 +1332,7 @@ background-color: #30043c !important;
       color: #FAFAFA !important;
       padding: 1rem 0;
       text-align: center;
-      margin-top: 2rem;
+          margin-bottom: 2rem;
       position: relative;
       overflow: hidden;
       width: 70%;
@@ -1368,8 +1368,7 @@ background-color: #30043c !important;
     }
     .nst-join-text {
       font-size: 1.3rem;
-      padding: 20px;
-      margin-bottom: 2rem;
+     
       animation: nst-fade-in 1.8s ease-out 0.5s;
       animation-fill-mode: backwards;
       position: relative;
