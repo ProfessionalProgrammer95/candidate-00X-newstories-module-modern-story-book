@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400&display=swap');
 
- 
+ body{
+  min-height: 100vh;
+ }
 .storybook-header {
   background: #FAFAFA;
   box-shadow: 0 2px 8px rgba(142,36,170,0.05);
@@ -178,6 +180,7 @@ nav a:hover { color: #FFB300; }
       font-family: 'Merriweather', 'Source Sans Pro', serif;
       color: #333;
       overflow-x: hidden;
+      min-height: 100vh;
     }
     .gradient-bg {
       background: linear-gradient(135deg, rgba(142, 36, 170, 0.4), rgba(255, 179, 0, 0.4)), url('https://img.freepik.com/free-vector/open-magic-book-radiating-bright-pink-light_107791-31914.jpg?ga=GA1.1.2080768343.1745482210&semt=ais_hybrid&w=740');
@@ -678,6 +681,7 @@ background-color: #30043c !important;
       color: #FAFAFA;
       padding: 2rem 0;
       text-align: center;
+      margin-bottom: 0;
     }
     .footer a {
       color: #FAFAFA;
@@ -941,9 +945,13 @@ background-color: #30043c !important;
     footer {
       /* background: linear-gradient(90deg, #8E24AA, #FFB300); */
       color: #ffffff;
-      padding: 2rem 0;
+      /* padding: 2rem 0; */
       text-align: center;
+      margin-bottom: 0;
      
+    }
+    .Sdcontainer{
+      min-height: 67vh;
     }
     footer a {
       color: #ffffff;

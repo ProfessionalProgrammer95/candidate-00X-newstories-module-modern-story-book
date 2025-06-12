@@ -96,7 +96,7 @@ const Community = () => {
         <div className="container">
           <h2 className="nst-join-title">Join Our Community</h2>
           <p className="nst-join-text">Become a part of Modern Story & Tales and start sharing your stories today.</p>
-          <button className="nst-join-btn">Get Started</button>
+          <button className="nst-join-btn"><a className="nav-link text-[#8E24AA] hover:text-[#FFB300]" href="/newstory">Get Started </a></button>
         </div>
       </div>
     );

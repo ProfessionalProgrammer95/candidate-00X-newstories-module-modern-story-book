@@ -1,4 +1,4 @@
-import{useState} from 'react';
+import {useState} from 'react';
 import {Card, Col, Container} from 'react-bootstrap';
 import {Link, useParams} from 'react-router-dom';
 
@@ -212,7 +212,7 @@ import {Link, useParams} from 'react-router-dom';
          <div>
           {/* Navigation */}
          <Navbar/>
-        <Container className="story-content px-5">
+        <Container className="story-content px-5 Sdcontainer">
           <h1>{story.title}</h1>
           <div className="story-meta">
             <span>By {story.author}</span>
@@ -225,7 +225,7 @@ import {Link, useParams} from 'react-router-dom';
             <span><i class="bi bi-bookmark bookmark-icon ms-2 me-2"></i>{story.bookmarks}</span>
           </div>
         </Container>
-         <footer className="footer">
+         <footer className="footer ">
         <div className="container">
           <a href="/about">About</a>
           <a href="/contact">Contact</a>
